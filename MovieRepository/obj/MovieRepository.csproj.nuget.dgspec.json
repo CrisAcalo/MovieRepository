@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\LENOVO\\Desktop\\Uni\\Mayo-Septiembre 2023\\Estructura De Datos\\Talleres\\2P\\MovieRepository\\MovieRepository.csproj": {}
+    "C:\\Users\\Edgar\\Desktop\\Uni\\Mayo-Septiembre 2023\\Estructura De Datos\\Talleres\\2P\\MovieRepository\\MovieRepository.csproj": {}
   },
   "projects": {
-    "C:\\Users\\LENOVO\\Desktop\\Uni\\Mayo-Septiembre 2023\\Estructura De Datos\\Talleres\\2P\\MovieRepository\\MovieRepository.csproj": {
+    "C:\\Users\\Edgar\\Desktop\\Uni\\Mayo-Septiembre 2023\\Estructura De Datos\\Talleres\\2P\\MovieRepository\\MovieRepository.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\LENOVO\\Desktop\\Uni\\Mayo-Septiembre 2023\\Estructura De Datos\\Talleres\\2P\\MovieRepository\\MovieRepository.csproj",
+        "projectUniqueName": "C:\\Users\\Edgar\\Desktop\\Uni\\Mayo-Septiembre 2023\\Estructura De Datos\\Talleres\\2P\\MovieRepository\\MovieRepository.csproj",
         "projectName": "MovieRepository",
-        "projectPath": "C:\\Users\\LENOVO\\Desktop\\Uni\\Mayo-Septiembre 2023\\Estructura De Datos\\Talleres\\2P\\MovieRepository\\MovieRepository.csproj",
-        "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LENOVO\\Desktop\\Uni\\Mayo-Septiembre 2023\\Estructura De Datos\\Talleres\\2P\\MovieRepository\\obj\\",
+        "projectPath": "C:\\Users\\Edgar\\Desktop\\Uni\\Mayo-Septiembre 2023\\Estructura De Datos\\Talleres\\2P\\MovieRepository\\MovieRepository.csproj",
+        "packagesPath": "C:\\Users\\Edgar\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Edgar\\Desktop\\Uni\\Mayo-Septiembre 2023\\Estructura De Datos\\Talleres\\2P\\MovieRepository\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Edgar\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
