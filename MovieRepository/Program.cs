@@ -5,6 +5,7 @@
         static void Main(string[] args)
         {
             Order order = new Order();
+            Lista listaPeliculas = new Lista();
             Console.WriteLine("Hello, World!");
 
             List<string> opciones = new List<string>()
@@ -54,8 +55,6 @@
                     case ConsoleKey.Enter:
                         Console.Clear();
                         Console.WriteLine("..:: Opción seleccionada: " + opciones[opcionSeleccionada]);
-
-                        // Aquí puedes agregar la lógica correspondiente a cada opción seleccionada
 
                         if (opciones[opcionSeleccionada] == "..:: Ingresar pelicula")
                         {
