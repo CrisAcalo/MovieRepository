@@ -1,26 +1,14 @@
-﻿using System;
-
-public class Pelicula
+﻿namespace MovieRepository
 {
+    internal class Pelicula
+    {
+        private string nombre { get; set; }
+        private int anio { get; set; }
 
-	private string Nombre;
-	private int Anio;
-
-	public Pelicula(string Nombre, int Anio)
-	{
-		this.Nombre = nombre;
-		this.Anio = anio;
-	}
-
-	public string Nombre
-	{
-		get { return Nombre; }
-		set { Nombre = value; }
-	}
-
-	public int Anio
-	{
-        get { return Anio; }
-        set { Aombre = value; }
+        public Pelicula(string nombre, int anio)
+        {
+            this.nombre = nombre;
+            this.anio = anio;
+        }
     }
 }
