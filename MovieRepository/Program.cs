@@ -1,81 +1,167 @@
-﻿namespace MovieRepository
+﻿using MovieRepository;
+class Program
 {
-    internal class Program
+    static void CenterText(string text)
     {
-        static void Main(string[] args)
+        int windowWidth = Console.WindowWidth;
+        int leftPadding = (windowWidth - text.Length) / 2;
+        Console.SetCursorPosition(leftPadding, Console.CursorTop);
+        Console.WriteLine(text);
+    }
+    static void Main(string[] args)
+    {
+        Console.Clear();
+
+        string[] menuOptions = {
+            "Ingresar película       ",
+            "Ver películas ingresadas",
+            "Eliminar película(s)    ",
+            "Ordenar                 ",
+            "Salir                   " };
+        int selectedOptionIndex = 0;
+
+        Nodo nodo = new Nodo();
+
+        while (true)
         {
-            Order order = new Order();
-            Lista listaPeliculas = new Lista();
-            Console.WriteLine("Hello, World!");
-
-            List<string> opciones = new List<string>()
-        {
-            "..:: Ingresar pelicula",
-            "..:: Ver peliculas ingresadas",
-            "..:: Eliminar pelicula/s",
-            "..:: Ordenar",
-            "..:: Salir"
-        };
-
-            int opcionSeleccionada = 0;
-
-            while (true)
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            CenterText("╔════════════════════════════╗");
+            CenterText("║                            ║");
+            CenterText("║      Movie Repository      ║");
+            CenterText("║                            ║");
+            CenterText("╚════════════════════════════╝");
+            Console.ResetColor();
+            CenterText("");
+            CenterText("Seleccione una opción:");
+            CenterText("");
+            for (int i = 0; i < menuOptions.Length; i++)
             {
-                Console.Clear();
-                Console.WriteLine("Seleccione una opción:");
-
-                for (int i = 0; i < opciones.Count; i++)
+                if (i == selectedOptionIndex)
                 {
-                    if (i == opcionSeleccionada)
-                    {
-                        Console.ForegroundColor = ConsoleColor.Black;
-                        Console.BackgroundColor = ConsoleColor.Magenta;
-                    }
-                    else
-                    {
-                        Console.ForegroundColor = ConsoleColor.Gray;
-                        Console.BackgroundColor = ConsoleColor.Black;
-                    }
-
-                    Console.SetCursorPosition(0, Console.CursorTop);
-                    Console.WriteLine(opciones[i]);
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    CenterText("> " + menuOptions[i]);
                 }
-
-                ConsoleKeyInfo tecla = Console.ReadKey();
-
-                switch (tecla.Key)
+                else
                 {
-                    case ConsoleKey.UpArrow:
-                        opcionSeleccionada = (opcionSeleccionada == 0) ? opciones.Count - 1 : opcionSeleccionada - 1;
-                        break;
-                    case ConsoleKey.DownArrow:
-                        //opcionSeleccionada = (opcionSeleccionada == opciones.Count - 1) ? 0 : opcionSeleccionada + 1;
-                        opcionSeleccionada = (opcionSeleccionada + 1) % opciones.Count;
-                        break;
-                    case ConsoleKey.Enter:
-                        Console.Clear();
-                        Console.WriteLine("..:: Opción seleccionada: " + opciones[opcionSeleccionada]);
-
-                        if (opciones[opcionSeleccionada] == "..:: Ingresar pelicula")
-                        {
-                            Console.WriteLine("A continuación se va a ingresar una pelicula");
-                        }
-                        else if (opciones[opcionSeleccionada] == "..:: Ver peliculas ingresadas")
-                        {
-
-                        }
-                        else if (opciones[opcionSeleccionada] == "..:: Eliminar pelicula/s")
-                        {
-
-                        }
-                        else if (opciones[opcionSeleccionada] == "..:: Salir")
-                        {
-                            return;
-                        }
-
-                        Console.ReadKey();
-                        break;
+                    CenterText("  " + menuOptions[i]);
                 }
+                Console.ResetColor();
+            }
+
+            ConsoleKeyInfo keyInfo = Console.ReadKey();
+
+            switch (keyInfo.Key)
+            {
+                case ConsoleKey.UpArrow:
+                    selectedOptionIndex = selectedOptionIndex > 0 ? selectedOptionIndex - 1 : menuOptions.Length - 1;
+                    break;
+                case ConsoleKey.DownArrow:
+                    selectedOptionIndex = (selectedOptionIndex + 1) % menuOptions.Length;
+                    break;
+                case ConsoleKey.Enter:
+                    Console.Clear();
+                    
+                    CenterText("Presione cualquier tecla para continuar...");
+
+                    if (selectedOptionIndex == menuOptions.Length - 1)
+                    {
+                        return; // Salir del programa
+                    }
+                    else if (menuOptions[selectedOptionIndex] == "Ingresar película       ")
+                    {
+                        string nombre;
+                        string año;
+                        int añoInteger = 0;
+                        bool isValidInput = false;
+
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        CenterText("╔══════════════════════════════╗");
+                        CenterText("║                              ║");
+                        CenterText("║        Nueva Pelicula        ║");
+                        CenterText("║                              ║");
+                        CenterText("╚══════════════════════════════╝");
+                        Console.ResetColor();
+
+                        CenterText("Inserte los datos de la película ");
+
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        CenterText("Nombre: ");
+                        Console.ResetColor();
+
+                        Console.SetCursorPosition((Console.WindowWidth - 20) / 2, Console.CursorTop);
+                        nombre = Console.ReadLine();
+                        while (nombre == "" || nombre == null || nombre == " ")
+                        {
+                            Console.ForegroundColor = ConsoleColor.Cyan;
+                            CenterText("Nombre: ");
+                            Console.ResetColor();
+                            Console.SetCursorPosition((Console.WindowWidth - 20) / 2, Console.CursorTop);
+                            nombre = Console.ReadLine();
+                        }
+
+                        do
+                        {
+                            try
+                            {
+                                Console.ForegroundColor = ConsoleColor.Cyan;
+                                CenterText("Año: ");
+                                Console.ResetColor();
+                                Console.SetCursorPosition((Console.WindowWidth - 20) / 2, Console.CursorTop);
+                                año = Console.ReadLine();
+
+                                añoInteger = int.Parse(año);
+
+                                while (añoInteger == 0)
+                                {
+                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                    CenterText("Año: ");
+                                    Console.ResetColor();
+                                    Console.SetCursorPosition((Console.WindowWidth - 20) / 2, Console.CursorTop);
+                                    nombre = Console.ReadLine();
+                                }
+
+                                Pelicula nuevaPelicula = new Pelicula(nombre, añoInteger);
+
+                                nodo.InsertarFinal(nuevaPelicula);
+                                isValidInput = true;
+                            }
+                            catch (FormatException)
+                            {
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                CenterText("..:: Tipo de dato no válido. Ingresar de nuevo por favor ::..");
+                                Console.ResetColor();
+                            }
+                            catch (OverflowException)
+                            {
+                                Console.ForegroundColor = ConsoleColor.Red;
+                                CenterText("Ha ingresado un valor fuera del rango de un número entero ;-;");
+                                Console.ResetColor();
+                            }
+                        } while (isValidInput != true);
+
+                    }
+                    else if (menuOptions[selectedOptionIndex] == "Ver películas ingresadas")
+                    {
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        CenterText("╔══════════════════════════════╗");
+                        CenterText("║                              ║");
+                        CenterText("║      Peliculas Actuales      ║");
+                        CenterText("║                              ║");
+                        CenterText("╚══════════════════════════════╝");
+
+                        nodo.ver();
+                    }
+                    else if (menuOptions[selectedOptionIndex] == "Eliminar película(s)    ")
+                    {
+                        CenterText("EN EL AIRE WEON");
+                    }
+                    else if (menuOptions[selectedOptionIndex] == "Ordenar                 ")
+                    {
+                        CenterText("EN EL AIRE WEON");
+                    }
+                    Console.ReadKey();
+                    break;
             }
         }
     }

@@ -2,25 +2,32 @@
 
 public class Pelicula
 {
+    public string nombre { get; set; }
+    public int anio { get; set; }
 
-	private string Nombre;
-	private int Anio;
+    public Pelicula(string nombre, int anio)
+    {
+        this.nombre = nombre;
+        this.anio = anio;
+    }
+    public Pelicula()
+    {
+    }
 
-	public Pelicula(string Nombre, int Anio)
-	{
-		this.Nombre = nombre;
-		this.Anio = anio;
-	}
+    public override bool Equals(object? obj)
+    {
+        return obj is Pelicula pelicula &&
+               nombre == pelicula.nombre &&
+               anio == pelicula.anio;
+    }
 
-	public string Nombre
-	{
-		get { return Nombre; }
-		set { Nombre = value; }
-	}
+    public override int GetHashCode()
+    {
+        return HashCode.Combine(nombre, anio);
+    }
 
-	public int Anio
-	{
-        get { return Anio; }
-        set { Aombre = value; }
+    public override string? ToString()
+    {
+        return base.ToString();
     }
 }
