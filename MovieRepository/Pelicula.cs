@@ -26,8 +26,4 @@ public class Pelicula
         return HashCode.Combine(nombre, anio);
     }
 
-    public override string? ToString()
-    {
-        return base.ToString();
-    }
 }
