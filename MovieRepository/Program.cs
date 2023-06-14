@@ -401,9 +401,21 @@ class Program
                     {
                         try
                         {
-                            Console.ForegroundColor = ConsoleColor.Green;
-                            CenterText("El ordenamiento por Shell se ha ejecutado con exito");
-                            Console.ResetColor();
+                            if (atributo == "nombre")
+                            {
+                                nodo.OrdenarAlfabeticamenteBurbuja();
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                CenterText("El ordenamiento alfabetico por SellSort se ha ejecutado con exito");
+                                Console.ResetColor();
+                            }
+                            else if (atributo == "anio")
+                            {
+                                nodo.OrdenarShellSort();
+
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                CenterText("El ordenamiento por año por SellSort se ha ejecutado con exito");
+                                Console.ResetColor();
+                            }
                         }
                         catch (Exception)
                         {

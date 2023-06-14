@@ -91,7 +91,7 @@
                 Nodo puntero = this;
                 int numElementos = 0;
                 numElementos = puntero.count();
-                
+
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 CenterText("══════════════════════════════════");
                 Console.ResetColor();
@@ -300,5 +300,102 @@
                 }
             }
         }
+
+        public void OrdenarShellSort()
+        {
+            int longitud = count();
+            int gap = longitud / 2;
+
+            while (gap > 0)
+            {
+                for (int i = gap; i < longitud; i++)
+                {
+                    Nodo puntero1 = this;
+                    Nodo puntero2 = this;
+                    int j = i;
+
+                    // Mover los punteros a las posiciones correspondientes en la lista
+                    for (int k = 0; k < j; k++)
+                        puntero1 = puntero1.sig;
+
+                    for (int k = 0; k < j - gap; k++)
+                        puntero2 = puntero2.sig;
+
+                    // Obtener los años de las películas a comparar
+                    int año1 = puntero1.pelicula.anio;
+                    int año2 = puntero2.pelicula.anio;
+
+                    while (j >= gap && año2 > año1)
+                    {
+                        // Realizar el intercambio de películas
+                        Pelicula temp = puntero1.pelicula;
+                        puntero1.pelicula = puntero2.pelicula;
+                        puntero2.pelicula = temp;
+
+                        // Mover los punteros hacia atrás en la lista
+                        j -= gap;
+                        puntero1 = puntero2;
+                        puntero2 = this;
+                        for (int k = 0; k < j; k++)
+                            puntero2 = puntero2.sig;
+
+                        // Actualizar los años de las películas a comparar
+                        año1 = puntero1.pelicula.anio;
+                        año2 = puntero2.pelicula.anio;
+                    }
+                }
+                gap /= 2;
+            }
+        }
+
+        public void OrdenarShellSortAlfabeticamente()
+        {
+            int longitud = count();
+            int gap = longitud / 2;
+
+            while (gap > 0)
+            {
+                for (int i = gap; i < longitud; i++)
+                {
+                    Nodo puntero1 = this;
+                    Nodo puntero2 = this;
+                    int j = i;
+
+                    // Mover los punteros a las posiciones correspondientes en la lista
+                    for (int k = 0; k < j; k++)
+                        puntero1 = puntero1.sig;
+
+                    for (int k = 0; k < j - gap; k++)
+                        puntero2 = puntero2.sig;
+
+                    // Obtener los nombres de las películas a comparar
+                    string nombre1 = puntero1.pelicula.nombre;
+                    string nombre2 = puntero2.pelicula.nombre;
+
+                    while (j >= gap && string.Compare(nombre2, nombre1) < 0)
+                    {
+                        // Realizar el intercambio de películas
+                        Pelicula temp = puntero1.pelicula;
+                        puntero1.pelicula = puntero2.pelicula;
+                        puntero2.pelicula = temp;
+
+                        // Mover los punteros hacia atrás en la lista
+                        j -= gap;
+                        puntero1 = puntero2;
+                        puntero2 = this;
+                        for (int k = 0; k < j; k++)
+                            puntero2 = puntero2.sig;
+
+                        // Actualizar los nombres de las películas a comparar
+                        nombre1 = puntero1.pelicula.nombre;
+                        nombre2 = puntero2.pelicula.nombre;
+                    }
+                }
+                gap /= 2;
+            }
+        }
+
+
+
     }
 }

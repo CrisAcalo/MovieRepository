@@ -150,7 +150,7 @@
             }
         }
 
-        static void ordenar_shellsort(int[] arr)
+        public void ordenar_shellsort(int[] arr)
         {
             int n = arr.Length;
             int gap = n / 2;
