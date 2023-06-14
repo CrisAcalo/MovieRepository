@@ -83,6 +83,7 @@
             Nodo nodonuevo = this;
             Console.WriteLine("El primer elemento es " + nodonuevo.pelicula);
         }
+
         public void ver()//mediante un for recorre los espacios y muestra el elemento de las lista
         {
             if (!Vacio())
@@ -124,6 +125,125 @@
             int leftPadding = (windowWidth - text.Length) / 2;
             Console.SetCursorPosition(leftPadding, Console.CursorTop);
             Console.WriteLine(text);
+        }
+
+
+        public void eliminarPrimero()
+        {
+            Nodo puntero;//Apuntador que se ubicara en el 2do nodo
+
+            if (!Vacio())//Solo se puede eliminar si la lista contiene dato
+            {
+                if (this.sig == null)
+                {
+                    this.pelicula = null;
+                }
+                else//hay almenos 2 elementos en la Lista
+                {
+                    puntero = this.sig;
+                    //Se copia el contenido del 2do nodo en el 1ro
+                    this.pelicula.nombre = puntero.pelicula.nombre;
+                    this.pelicula.anio = puntero.pelicula.anio;
+                    //Se hace apuntar el primer nodo al 3er nodo
+                    this.sig = puntero.sig;
+                    puntero.sig = null;
+                }
+            }
+        }
+
+
+        public void EliminarPorNombre(string nombre)
+        {
+            Nodo puntero = this;
+            Nodo anterior = null;
+
+            if (!Vacio())
+            {
+                while (puntero != null)
+                {
+                    if (puntero.pelicula.nombre == nombre)
+                    {
+                        if(puntero == this)
+                        {
+                            eliminarPrimero();
+                            Console.ForegroundColor = ConsoleColor.DarkGreen;
+                            Console.WriteLine("\nLa pelicula " + nombre + " fue eliminada   ");
+                            Console.ResetColor();
+                            return;
+                        }
+                        else
+                        {
+                            if (anterior == null)
+                                puntero = puntero.sig;
+                            else
+                                anterior.sig = puntero.sig;
+                            Console.ForegroundColor = ConsoleColor.DarkGreen;
+                            Console.WriteLine("\nLa pelicula " + nombre + " fue eliminada   ");
+                            Console.ResetColor();
+                            return;
+                        }
+
+                    }
+                    anterior = puntero;
+                    puntero = puntero.sig;
+                }
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.WriteLine("\nLa pelicula " + nombre + " no esta dentro de la lista");
+                Console.ResetColor();
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.WriteLine("La lista esta vacia");
+                Console.ResetColor();
+            }
+        }
+
+        public void EliminarPorAnio(int anio)
+        {
+            Nodo puntero = this;
+            Nodo anterior = null;
+
+            if (!Vacio())
+            {
+                while (puntero != null)
+                {
+                    if (puntero.pelicula.anio == anio)
+                    {
+                        if (puntero == this)
+                        {
+                            eliminarPrimero();
+                            Console.ForegroundColor = ConsoleColor.DarkGreen;
+                            Console.WriteLine("\nLa pelicula " + anio + " fue eliminada   ");
+                            Console.ResetColor();
+                            return;
+                        }
+                        else
+                        {
+                            if (anterior == null)
+                                puntero = puntero.sig;
+                            else
+                                anterior.sig = puntero.sig;
+                            Console.ForegroundColor = ConsoleColor.DarkGreen;
+                            Console.WriteLine("\nLa pelicula " + anio + " fue eliminada   ");
+                            Console.ResetColor();
+                            return;
+                        }
+
+                    }
+                    anterior = puntero;
+                    puntero = puntero.sig;
+                }
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.WriteLine("\nLa pelicula " + anio + " no esta dentro de la lista");
+                Console.ResetColor();
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+                Console.WriteLine("La lista esta vacia");
+                Console.ResetColor();
+            }
         }
     }
 }

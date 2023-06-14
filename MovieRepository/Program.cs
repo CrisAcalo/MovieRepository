@@ -115,6 +115,26 @@ class Program
                         CenterText("║                              ║");
                         CenterText("╚══════════════════════════════╝");
                         Console.ResetColor();
+                        //CenterText("Inserte el nombre de la pelicula a eliminar ");
+
+                        //Console.ForegroundColor = ConsoleColor.Cyan;
+                        //CenterText("Nombre: ");
+                        //Console.ResetColor();
+
+                        //Console.SetCursorPosition((Console.WindowWidth - 20) / 2, Console.CursorTop);
+                        //string nombreEliminado = Console.ReadLine();
+                        //nodo.EliminarPorNombre(nombreEliminado);
+
+                        CenterText("Inserte el anio de la pelicula a eliminar ");
+
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        CenterText("Anio: ");
+                        Console.ResetColor();
+
+                        Console.SetCursorPosition((Console.WindowWidth - 20) / 2, Console.CursorTop);
+                        int anioEliminado = int.Parse(Console.ReadLine());
+                        nodo.EliminarPorAnio(anioEliminado);
+                        CenterText("EN EL AIRE WEON");
                     }
                     else if (menuOptions[selectedOptionIndex] == "Ordenar                 ")
                     {
