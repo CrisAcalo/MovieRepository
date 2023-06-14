@@ -6,7 +6,7 @@
         {
             //
         }
-        static void OrdenarIntercambio(int[] arr)
+        public static void OrdenarIntercambio(int[] arr)
         {
             int n = arr.Length;
             for (int i = 0; i < n - 1; i++)
@@ -25,7 +25,7 @@
             }
         }
 
-        static void Ver(int[] arr)
+        public static void Ver(int[] arr)
         {
             for (int i = 0; i < arr.Length; i++)
             {
@@ -34,27 +34,34 @@
             Console.WriteLine();
         }
 
-        static void OrdenarBurbuja(int[] arr)
+        public static void OrdenarBurbuja(Nodo nodo)
         {
-            int n = arr.Length;
+            int n = nodo.count();
             bool intercambio;
-            int temp;
+            Nodo temp;
+
             for (int i = 0; i < n - 1; i++)
             {
                 intercambio = false;
                 for (int j = 0; j < n - i - 1; j++)
                 {
-                    if (arr[j] > arr[j + 1])
+                    //if (arr[j] > arr[j + 1])
+                    //{
+                    //    //Realizar el intercambio
+                    //    temp = arr[j];
+                    //    arr[j] = arr[j + 1];
+                    //    arr[j + 1] = temp;
+                    //    intercambio = true;
+                    //}
+                    if (nodo.pelicula.anio > nodo.sig.pelicula.anio)
                     {
                         //Realizar el intercambio
-                        temp = arr[j];
-                        arr[j] = arr[j + 1];
-                        arr[j + 1] = temp;
+                        temp = nodo;
+                        nodo = nodo.sig;
+                        nodo.sig = temp;
                         intercambio = true;
                     }
-
-                    Console.WriteLine("Iteración: " + j);
-                    Ver(arr);
+                    nodo = nodo.sig;
                 }
                 //Si no hubo intercambios en esta pasada, la lista está ordenada
                 if (!intercambio) //+1 de eficiencia
@@ -65,7 +72,7 @@
             }
         }
 
-        static void OrdenarAlfabeticamente(string[] palabras)
+        public static void OrdenarAlfabeticamente(string[] palabras)
         {
             int intercambios = 0;
             bool intercambio;
@@ -93,7 +100,7 @@
             Console.WriteLine("El numero de intercambios realizados son: " + intercambios);
         }
 
-        static void ImprimirElementos(string[] palabras)
+        public static void ImprimirElementos(string[] palabras)
         {
             int i = 0;
             foreach (string palabra in palabras)
@@ -109,7 +116,7 @@
         }
 
 
-        static void ordenar_insertar(int[] arr)
+        public static void ordenar_insertar(int[] arr)
         {
             int n = arr.Length;
             for (int i = 1; i < n; i++)
@@ -125,7 +132,7 @@
             }
         }
 
-        static int ubicar_pivote(int[] lista, int ini, int fin)
+        public static int ubicar_pivote(int[] lista, int ini, int fin)
         {
             int pivote = lista[ini];
 
@@ -147,7 +154,7 @@
             return ini;
         }
 
-        static void ordenar_quicksort(int[] lista, int ini, int fin)
+        public static void ordenar_quicksort(int[] lista, int ini, int fin)
         {
             if (ini < fin)
             {
@@ -157,7 +164,7 @@
             }
         }
 
-        static void ordenar_shellsort(int[] arr)
+        public static void ordenar_shellsort(int[] arr)
         {
             int n = arr.Length;
             int gap = n / 2;
@@ -179,7 +186,7 @@
             }
         }
 
-        static void imprimir_arreglo_char(char[] arr)
+        public static void imprimir_arreglo_char(char[] arr)
         {
             for (int i = 0; i < arr.Length; i++)
             {
@@ -188,7 +195,7 @@
             Console.WriteLine();
         }
 
-        static void imprimir_arreglo(int[] arr)
+        public static void imprimir_arreglo(int[] arr)
         {
             for (int i = 0; i < arr.Length; i++)
             {
