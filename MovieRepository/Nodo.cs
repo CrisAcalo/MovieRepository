@@ -248,58 +248,69 @@
 
         public void OrdenarBurbuja()
         {
-            Nodo puntero1, puntero2;
-            Pelicula temp;
-            int longitud = count();
+            int n = count();
+            bool intercambio;
+            Nodo temp;
 
-            for (int i = 0; i < longitud - 1; i++)
+            for (int i = 0; i < n - 1; i++)
             {
-                puntero1 = this;
-                puntero2 = this.sig;
+                intercambio = false;
+                Nodo puntero = this;
 
-                for (int j = 0; j < longitud - i - 1; j++)
+                for (int j = 0; j < n - i - 1; j++)
                 {
-                    if (puntero1.pelicula.anio > puntero2.pelicula.anio)
+                    if (puntero.pelicula.anio > puntero.sig.pelicula.anio)
                     {
-                        // Realizar el intercambio de películas
-                        temp = puntero1.pelicula;
-                        puntero1.pelicula = puntero2.pelicula;
-                        puntero2.pelicula = temp;
+                        // Realizar el intercambio
+                        temp = new Nodo(puntero.pelicula);
+                        puntero.pelicula = puntero.sig.pelicula;
+                        puntero.sig.pelicula = temp.pelicula;
+
+                        intercambio = true;
                     }
 
-                    puntero1 = puntero1.sig;
-                    puntero2 = puntero2.sig;
+                    puntero = puntero.sig;
+                }
+
+                if (!intercambio)
+                {
+                    break;
                 }
             }
         }
 
         public void OrdenarAlfabeticamenteBurbuja()
         {
-            Nodo puntero1, puntero2;
-            string temp;
-            int longitud = count();
+            int n = count();
+            bool intercambio;
+            Nodo temp;
 
-            for (int i = 0; i < longitud - 1; i++)
+            for (int i = 0; i < n - 1; i++)
             {
-                puntero1 = this;
-                puntero2 = this.sig;
+                intercambio = false;
+                Nodo puntero = this;
 
-                for (int j = 0; j < longitud - i - 1; j++)
+                for (int j = 0; j < n - i - 1; j++)
                 {
-                    if (string.Compare(puntero1.pelicula.nombre, puntero2.pelicula.nombre) > 0)
+                    if (string.Compare(puntero.pelicula.nombre, puntero.sig.pelicula.nombre) > 0)
                     {
-                        // Realizar el intercambio de nombres de películas
-                        temp = puntero1.pelicula.nombre;
-                        puntero1.pelicula.nombre = puntero2.pelicula.nombre;
-                        puntero2.pelicula.nombre = temp;
+                        // Realizar el intercambio
+                        temp = new Nodo(puntero.pelicula);
+                        puntero.pelicula = puntero.sig.pelicula;
+                        puntero.sig.pelicula = temp.pelicula;
+
+                        intercambio = true;
                     }
 
-                    puntero1 = puntero1.sig;
-                    puntero2 = puntero2.sig;
+                    puntero = puntero.sig;
+                }
+
+                if (!intercambio)
+                {
+                    break;
                 }
             }
         }
-
 
         public void OrdenarShellSort()
         {
@@ -308,45 +319,51 @@
 
             while (gap > 0)
             {
-                for (int i = gap; i < longitud; i++)
+                Nodo puntero1 = this;
+                Nodo puntero2 = this;
+
+                // Mover el puntero 2 a la posición gap en la lista
+                for (int i = 0; i < gap; i++)
+                    puntero2 = puntero2.sig;
+
+                while (puntero2 != null)
                 {
-                    Nodo puntero1 = this;
-                    Nodo puntero2 = this;
-                    int j = i;
+                    bool intercambio = false;
 
-                    // Mover los punteros a las posiciones correspondientes en la lista
-                    for (int k = 0; k < j; k++)
-                        puntero1 = puntero1.sig;
+                    // Obtener las películas a comparar
+                    Pelicula pelicula1 = puntero1.pelicula;
+                    Pelicula pelicula2 = puntero2.pelicula;
 
-                    for (int k = 0; k < j - gap; k++)
-                        puntero2 = puntero2.sig;
-
-                    // Obtener los años de las películas a comparar
-                    int año1 = puntero1.pelicula.anio;
-                    int año2 = puntero2.pelicula.anio;
-
-                    while (j >= gap && año2 > año1)
+                    if (pelicula1.anio > pelicula2.anio)
                     {
                         // Realizar el intercambio de películas
-                        Pelicula temp = puntero1.pelicula;
-                        puntero1.pelicula = puntero2.pelicula;
-                        puntero2.pelicula = temp;
+                        puntero1.pelicula = pelicula2;
+                        puntero2.pelicula = pelicula1;
+                        intercambio = true;
+                    }
 
-                        // Mover los punteros hacia atrás en la lista
-                        j -= gap;
-                        puntero1 = puntero2;
+                    if (intercambio)
+                    {
+                        // Retroceder los punteros para verificar si hay más intercambios
+                        puntero1 = this;
                         puntero2 = this;
-                        for (int k = 0; k < j; k++)
-                            puntero2 = puntero2.sig;
 
-                        // Actualizar los años de las películas a comparar
-                        año1 = puntero1.pelicula.anio;
-                        año2 = puntero2.pelicula.anio;
+                        for (int i = 0; i < gap; i++)
+                            puntero2 = puntero2.sig;
+                    }
+                    else
+                    {
+                        // Avanzar los punteros
+                        puntero1 = puntero1.sig;
+                        puntero2 = puntero2.sig;
                     }
                 }
+
                 gap /= 2;
             }
         }
+
+
 
         public void OrdenarShellSortAlfabeticamente()
         {
@@ -368,16 +385,15 @@
                     for (int k = 0; k < j - gap; k++)
                         puntero2 = puntero2.sig;
 
-                    // Obtener los nombres de las películas a comparar
-                    string nombre1 = puntero1.pelicula.nombre;
-                    string nombre2 = puntero2.pelicula.nombre;
+                    // Obtener la película a comparar
+                    Pelicula pelicula1 = puntero1.pelicula;
+                    Pelicula pelicula2 = puntero2.pelicula;
 
-                    while (j >= gap && string.Compare(nombre2, nombre1) < 0)
+                    while (j >= gap && string.Compare(pelicula2.nombre, pelicula1.nombre) < 0)
                     {
                         // Realizar el intercambio de películas
-                        Pelicula temp = puntero1.pelicula;
-                        puntero1.pelicula = puntero2.pelicula;
-                        puntero2.pelicula = temp;
+                        puntero1.pelicula = pelicula2;
+                        puntero2.pelicula = pelicula1;
 
                         // Mover los punteros hacia atrás en la lista
                         j -= gap;
@@ -386,14 +402,15 @@
                         for (int k = 0; k < j; k++)
                             puntero2 = puntero2.sig;
 
-                        // Actualizar los nombres de las películas a comparar
-                        nombre1 = puntero1.pelicula.nombre;
-                        nombre2 = puntero2.pelicula.nombre;
+                        // Actualizar las películas a comparar
+                        pelicula1 = puntero1.pelicula;
+                        pelicula2 = puntero2.pelicula;
                     }
                 }
                 gap /= 2;
             }
         }
+
         public void OrdenarPorAnioQuick()
         {
             if (this == null || this.sig == null)
@@ -462,9 +479,9 @@
             Nodo puntero1 = inicio.sig;
             Nodo puntero2 = inicio;
 
-            while(puntero1 != fin.sig)
+            while (puntero1 != fin.sig)
             {
-                if(puntero1.pelicula.anio < pivote)
+                if (puntero1.pelicula.anio < pivote)
                 {
                     puntero2 = puntero2.sig;
                     IntercambiarNodos(puntero1, puntero2);
