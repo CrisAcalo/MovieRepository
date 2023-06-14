@@ -508,7 +508,7 @@ class Program
                         string nombreEliminado = Console.ReadLine();
                         nodo.EliminarPorNombre(nombreEliminado);
                     }
-                    else if (menuOptions[selectedOptionIndex] == "Ordenar por año         ")
+                    else if (menuOptions[selectedOptionIndex] == "Eliminar por año         ")
                     {
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         CenterText("╔══════════════════════════════╗");
