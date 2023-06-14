@@ -91,7 +91,8 @@
                 Nodo puntero = this;
                 int numElementos = 0;
                 numElementos = puntero.count();
-
+                
+                Console.ForegroundColor = ConsoleColor.Cyan;
                 CenterText("══════════════════════════════════");
                 Console.ResetColor();
                 for (int i = 0; i < numElementos; i++)//for que sirve para imprimir el contenido de la lista
@@ -100,7 +101,6 @@
                     CenterText("Año: " + puntero.pelicula.anio);
                     if (i != (numElementos - 1))
                     {
-                        //Console.Write("->");//Write imprime sin el salto de linea
                         Console.ForegroundColor = ConsoleColor.Cyan;
                         CenterText("══════════════════════════════════");
                         Console.ResetColor();
@@ -163,7 +163,7 @@
                 {
                     if (puntero.pelicula.nombre == nombre)
                     {
-                        if(puntero == this)
+                        if (puntero == this)
                         {
                             eliminarPrimero();
                             Console.ForegroundColor = ConsoleColor.DarkGreen;
@@ -243,6 +243,61 @@
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
                 Console.WriteLine("La lista esta vacia");
                 Console.ResetColor();
+            }
+        }
+
+        public void OrdenarBurbuja()
+        {
+            Nodo puntero1, puntero2;
+            Pelicula temp;
+            int longitud = count();
+
+            for (int i = 0; i < longitud - 1; i++)
+            {
+                puntero1 = this;
+                puntero2 = this.sig;
+
+                for (int j = 0; j < longitud - i - 1; j++)
+                {
+                    if (puntero1.pelicula.anio > puntero2.pelicula.anio)
+                    {
+                        // Realizar el intercambio de películas
+                        temp = puntero1.pelicula;
+                        puntero1.pelicula = puntero2.pelicula;
+                        puntero2.pelicula = temp;
+                    }
+
+                    puntero1 = puntero1.sig;
+                    puntero2 = puntero2.sig;
+                }
+            }
+        }
+
+
+        public void OrdenarAlfabeticamenteBurbuja()
+        {
+            Nodo puntero1, puntero2;
+            string temp;
+            int longitud = count();
+
+            for (int i = 0; i < longitud - 1; i++)
+            {
+                puntero1 = this;
+                puntero2 = this.sig;
+
+                for (int j = 0; j < longitud - i - 1; j++)
+                {
+                    if (string.Compare(puntero1.pelicula.nombre, puntero2.pelicula.nombre) > 0)
+                    {
+                        // Realizar el intercambio de nombres de películas
+                        temp = puntero1.pelicula.nombre;
+                        puntero1.pelicula.nombre = puntero2.pelicula.nombre;
+                        puntero2.pelicula.nombre = temp;
+                    }
+
+                    puntero1 = puntero1.sig;
+                    puntero2 = puntero2.sig;
+                }
             }
         }
     }

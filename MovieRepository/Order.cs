@@ -6,7 +6,7 @@
         {
             //
         }
-        public static void OrdenarIntercambio(int[] arr)
+        static void OrdenarIntercambio(int[] arr)
         {
             int n = arr.Length;
             for (int i = 0; i < n - 1; i++)
@@ -25,7 +25,7 @@
             }
         }
 
-        public static void Ver(int[] arr)
+        static void Ver(int[] arr)
         {
             for (int i = 0; i < arr.Length; i++)
             {
@@ -34,48 +34,38 @@
             Console.WriteLine();
         }
 
-        public static void OrdenarBurbuja(Nodo nodo)
+        public void OrdenarBurbuja(int[] arr)
         {
-            int n = nodo.count();
+            int n = arr.Length;
             bool intercambio;
-            Nodo temp;
-
+            int temp;
             for (int i = 0; i < n - 1; i++)
             {
                 intercambio = false;
                 for (int j = 0; j < n - i - 1; j++)
                 {
-                    //if (arr[j] > arr[j + 1])
-                    //{
-                    //    //Realizar el intercambio
-                    //    temp = arr[j];
-                    //    arr[j] = arr[j + 1];
-                    //    arr[j + 1] = temp;
-                    //    intercambio = true;
-                    //}
-                    if (nodo.pelicula.anio > nodo.sig.pelicula.anio)
+                    if (arr[j] > arr[j + 1])
                     {
                         //Realizar el intercambio
-                        temp = nodo;
-                        nodo = nodo.sig;
-                        nodo.sig = temp;
+                        temp = arr[j];
+                        arr[j] = arr[j + 1];
+                        arr[j + 1] = temp;
                         intercambio = true;
                     }
-                    nodo = nodo.sig;
+
                 }
                 //Si no hubo intercambios en esta pasada, la lista está ordenada
                 if (!intercambio) //+1 de eficiencia
                 {
-                    Console.WriteLine("EN EL AIRE WEON!?");
                     break;
                 }
             }
         }
 
-        public static void OrdenarAlfabeticamente(string[] palabras)
+        static void OrdenarAlfabeticamente(string[] palabras)
         {
-            int intercambios = 0;
             bool intercambio;
+            string temp;
             for (int i = 0; i < palabras.Length - 1; i++)
             {
                 intercambio = false;
@@ -83,24 +73,20 @@
                 {
                     if (string.Compare(palabras[j], palabras[j + 1]) > 0)
                     {
-                        string temp = palabras[j];
+                        temp = palabras[j];
                         palabras[j] = palabras[j + 1];
                         palabras[j + 1] = temp;
-                        intercambios++;
                         intercambio = true;
                     }
                 }
-                if (!intercambio) //+1 de eficiencia
+                if (!intercambio) //más de eficiencia
                 {
-                    Console.WriteLine("EN EL AIRE WEON!?");
                     break;
                 }
             }
-
-            Console.WriteLine("El numero de intercambios realizados son: " + intercambios);
         }
 
-        public static void ImprimirElementos(string[] palabras)
+        static void ImprimirElementos(string[] palabras)
         {
             int i = 0;
             foreach (string palabra in palabras)
@@ -116,7 +102,7 @@
         }
 
 
-        public static void ordenar_insertar(int[] arr)
+        static void ordenar_insertar(int[] arr)
         {
             int n = arr.Length;
             for (int i = 1; i < n; i++)
@@ -132,7 +118,7 @@
             }
         }
 
-        public static int ubicar_pivote(int[] lista, int ini, int fin)
+        static int ubicar_pivote(int[] lista, int ini, int fin)
         {
             int pivote = lista[ini];
 
@@ -154,7 +140,7 @@
             return ini;
         }
 
-        public static void ordenar_quicksort(int[] lista, int ini, int fin)
+        static void ordenar_quicksort(int[] lista, int ini, int fin)
         {
             if (ini < fin)
             {
@@ -164,7 +150,7 @@
             }
         }
 
-        public static void ordenar_shellsort(int[] arr)
+        static void ordenar_shellsort(int[] arr)
         {
             int n = arr.Length;
             int gap = n / 2;
@@ -186,7 +172,7 @@
             }
         }
 
-        public static void imprimir_arreglo_char(char[] arr)
+        static void imprimir_arreglo_char(char[] arr)
         {
             for (int i = 0; i < arr.Length; i++)
             {
@@ -195,7 +181,7 @@
             Console.WriteLine();
         }
 
-        public static void imprimir_arreglo(int[] arr)
+        static void imprimir_arreglo(int[] arr)
         {
             for (int i = 0; i < arr.Length; i++)
             {

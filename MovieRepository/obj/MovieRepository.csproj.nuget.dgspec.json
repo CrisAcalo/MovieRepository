@@ -1,7 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
     "C:\\Users\\USUARIO\\Desktop\\Uni\\III\\Estructura de Datos\\Repositorios\\MovieRepository\\MovieRepository\\MovieRepository.csproj": {}
   },
   "projects": {
@@ -13,30 +12,13 @@
         "projectPath": "C:\\Users\\USUARIO\\Desktop\\Uni\\III\\Estructura de Datos\\Repositorios\\MovieRepository\\MovieRepository\\MovieRepository.csproj",
         "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\USUARIO\\Desktop\\Uni\\III\\Estructura de Datos\\Repositorios\\MovieRepository\\MovieRepository\\obj\\",
-=======
-    "C:\\Users\\LENOVO\\Desktop\\Uni\\Mayo-Septiembre 2023\\Estructura De Datos\\Talleres\\2P\\MovieRepository\\MovieRepository.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\LENOVO\\Desktop\\Uni\\Mayo-Septiembre 2023\\Estructura De Datos\\Talleres\\2P\\MovieRepository\\MovieRepository.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\LENOVO\\Desktop\\Uni\\Mayo-Septiembre 2023\\Estructura De Datos\\Talleres\\2P\\MovieRepository\\MovieRepository.csproj",
-        "projectName": "MovieRepository",
-        "projectPath": "C:\\Users\\LENOVO\\Desktop\\Uni\\Mayo-Septiembre 2023\\Estructura De Datos\\Talleres\\2P\\MovieRepository\\MovieRepository.csproj",
-        "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\LENOVO\\Desktop\\Uni\\Mayo-Septiembre 2023\\Estructura De Datos\\Talleres\\2P\\MovieRepository\\obj\\",
->>>>>>> ef55e28ae09714a571345e87f7c01a627d8539a7
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-<<<<<<< HEAD
           "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-=======
-          "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> ef55e28ae09714a571345e87f7c01a627d8539a7
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

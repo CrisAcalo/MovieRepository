@@ -25,10 +25,10 @@ class Program
         Nodo nodo = new Nodo();
 
         Pelicula nuevaPelicula1 = new Pelicula("A", 2010);
-        Pelicula nuevaPelicula2 = new Pelicula("A", 2011);
-        Pelicula nuevaPelicula3 = new Pelicula("A", 2012);
-        Pelicula nuevaPelicula4 = new Pelicula("A", 2013);
-        Pelicula nuevaPelicula5 = new Pelicula("A", 2014);
+        Pelicula nuevaPelicula2 = new Pelicula("B", 2011);
+        Pelicula nuevaPelicula3 = new Pelicula("C", 2012);
+        Pelicula nuevaPelicula4 = new Pelicula("D", 2013);
+        Pelicula nuevaPelicula5 = new Pelicula("E", 2014);
         nodo.InsertarFinal(nuevaPelicula5);
         nodo.InsertarFinal(nuevaPelicula4);
         nodo.InsertarFinal(nuevaPelicula3);
@@ -134,6 +134,7 @@ class Program
                         Console.SetCursorPosition((Console.WindowWidth - 20) / 2, Console.CursorTop);
                         int anioEliminado = int.Parse(Console.ReadLine());
                         nodo.EliminarPorAnio(anioEliminado);
+
                         CenterText("EN EL AIRE WEON");
                     }
                     else if (menuOptions[selectedOptionIndex] == "Ordenar                 ")
@@ -228,7 +229,7 @@ class Program
         string[] menuOptions = {
             "Ordenar por nombre      ",
             "Ordenar por año         ",
-            "Cancelar                "
+            "Atrás                   "
         };
 
         int selectedOptionIndex = 0;
@@ -317,7 +318,7 @@ class Program
             "Burbuja                 ",
             "Shell                   ",
             "Quick                   ",
-            "Cancelar                "
+            "Atrás                   "
         };
 
         int selectedOptionIndex = 0;
@@ -375,11 +376,17 @@ class Program
                         {
                             if (atributo == "nombre")
                             {
-                                //
+                                nodo.OrdenarAlfabeticamenteBurbuja();
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                CenterText("El ordenamiento alfabetico por Burbuja se ha ejecutado con exito");
+                                Console.ResetColor();
                             }
                             else if (atributo == "anio")
                             {
-                                Order.OrdenarBurbuja(nodo);
+                                nodo.OrdenarBurbuja();
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                CenterText("El ordenamiento por año por Burbuja se ha ejecutado con exito");
+                                Console.ResetColor();
                             }
                         }
                         catch (Exception)
@@ -394,7 +401,9 @@ class Program
                     {
                         try
                         {
-
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            CenterText("El ordenamiento por Shell se ha ejecutado con exito");
+                            Console.ResetColor();
                         }
                         catch (Exception)
                         {

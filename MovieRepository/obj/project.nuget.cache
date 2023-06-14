@@ -1,14 +1,15 @@
 {
   "version": 2,
-<<<<<<< HEAD
   "dgSpecHash": "jTZTFAJfAd+igLXS4CKu8rXEBb0GT+Y55WM1sNlSTiClrBGKVkuca7Ivgqx8q1VxygRNp/ErC/YtoTD/4/vv9g==",
   "success": true,
   "projectFilePath": "C:\\Users\\USUARIO\\Desktop\\Uni\\III\\Estructura de Datos\\Repositorios\\MovieRepository\\MovieRepository\\MovieRepository.csproj",
-=======
-  "dgSpecHash": "Hhfr7hKIm8BzgCQOrSWwIfAKVDsG1TLHumVtsIZyeowZZYDzimijLfG+xX+ocLUIoreGhZqzKVG/DnC0oODkMg==",
-  "success": true,
-  "projectFilePath": "C:\\Users\\LENOVO\\Desktop\\Uni\\Mayo-Septiembre 2023\\Estructura De Datos\\Talleres\\2P\\MovieRepository\\MovieRepository.csproj",
->>>>>>> ef55e28ae09714a571345e87f7c01a627d8539a7
   "expectedPackageFiles": [],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problema al leer el archivo de caché C:\\Users\\USUARIO\\Desktop\\Uni\\III\\Estructura de Datos\\Repositorios\\MovieRepository\\MovieRepository\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
