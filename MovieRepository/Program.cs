@@ -115,27 +115,9 @@ class Program
                         CenterText("║                              ║");
                         CenterText("╚══════════════════════════════╝");
                         Console.ResetColor();
-                        //CenterText("Inserte el nombre de la pelicula a eliminar ");
 
-                        //Console.ForegroundColor = ConsoleColor.Cyan;
-                        //CenterText("Nombre: ");
-                        //Console.ResetColor();
+                        EliminarAtributoSubmenu(nodo);
 
-                        //Console.SetCursorPosition((Console.WindowWidth - 20) / 2, Console.CursorTop);
-                        //string nombreEliminado = Console.ReadLine();
-                        //nodo.EliminarPorNombre(nombreEliminado);
-
-                        CenterText("Inserte el anio de la pelicula a eliminar ");
-
-                        Console.ForegroundColor = ConsoleColor.Cyan;
-                        CenterText("Anio: ");
-                        Console.ResetColor();
-
-                        Console.SetCursorPosition((Console.WindowWidth - 20) / 2, Console.CursorTop);
-                        int anioEliminado = int.Parse(Console.ReadLine());
-                        nodo.EliminarPorAnio(anioEliminado);
-
-                        CenterText("EN EL AIRE WEON");
                     }
                     else if (menuOptions[selectedOptionIndex] == "Ordenar                 ")
                     {
@@ -417,7 +399,20 @@ class Program
                     {
                         try
                         {
-
+                            if (atributo == "nombre")
+                            {
+                                nodo.OrdenarPorNombreQuick();
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                CenterText("El ordenamiento alfabetico por Quick se ha ejecutado con exito");
+                                Console.ResetColor();
+                            }
+                            else if (atributo == "anio")
+                            {
+                                nodo.OrdenarPorAnioQuick();
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                CenterText("El ordenamiento por año por Quick se ha ejecutado con exito");
+                                Console.ResetColor();
+                            }
                         }
                         catch (Exception)
                         {
@@ -426,6 +421,112 @@ class Program
                             Console.ResetColor();
                             throw;
                         }
+                    }
+                    Console.ReadKey();
+                    break;
+            }
+        }
+    }
+
+    private static void EliminarAtributoSubmenu(Nodo nodo)
+    {
+        Console.Clear();
+
+        string[] menuOptions = {
+            "Eliminar por nombre      ",
+            "Eliminar por año         ",
+            "Atrás                   "
+        };
+
+        int selectedOptionIndex = 0;
+
+        while (true)
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            CenterText("╔════════════════════════════╗");
+            CenterText("║                            ║");
+            CenterText("║          Eliminar          ║");
+            CenterText("║                            ║");
+            CenterText("╚════════════════════════════╝");
+            Console.ResetColor();
+            CenterText("");
+            CenterText("Seleccione el atributo a eliminar:");
+            CenterText("");
+
+            for (int i = 0; i < menuOptions.Length; i++)
+            {
+                if (i == selectedOptionIndex)
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    CenterText("> " + menuOptions[i]);
+                }
+                else
+                {
+                    CenterText("  " + menuOptions[i]);
+                }
+                Console.ResetColor();
+            }
+
+            ConsoleKeyInfo keyInfo = Console.ReadKey();
+
+            switch (keyInfo.Key)
+            {
+                case ConsoleKey.UpArrow:
+                    selectedOptionIndex = selectedOptionIndex > 0 ? selectedOptionIndex - 1 : menuOptions.Length - 1;
+                    break;
+                case ConsoleKey.DownArrow:
+                    selectedOptionIndex = (selectedOptionIndex + 1) % menuOptions.Length;
+                    break;
+                case ConsoleKey.Enter:
+                    Console.Clear();
+
+                    CenterText("Presione cualquier tecla para continuar...");
+
+                    if (selectedOptionIndex == menuOptions.Length - 1)
+                    {
+                        return;
+                    }
+                    else if (menuOptions[selectedOptionIndex] == "Eliminar por nombre      ")
+                    {
+
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        CenterText("╔══════════════════════════════╗");
+                        CenterText("║                              ║");
+                        CenterText("║      Eliminar Por Nombre     ║");
+                        CenterText("║                              ║");
+                        CenterText("╚══════════════════════════════╝");
+                        Console.ResetColor();
+
+                        CenterText("Inserte el nombre de la pelicula a eliminar ");
+
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        CenterText("Nombre: ");
+                        Console.ResetColor();
+
+                        Console.SetCursorPosition((Console.WindowWidth - 20) / 2, Console.CursorTop);
+                        string nombreEliminado = Console.ReadLine();
+                        nodo.EliminarPorNombre(nombreEliminado);
+                    }
+                    else if (menuOptions[selectedOptionIndex] == "Ordenar por año         ")
+                    {
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        CenterText("╔══════════════════════════════╗");
+                        CenterText("║                              ║");
+                        CenterText("║        Eliminar por año      ║");
+                        CenterText("║                              ║");
+                        CenterText("╚══════════════════════════════╝");
+                        Console.ResetColor();
+
+                        CenterText("Inserte el anio de la pelicula a eliminar ");
+
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        CenterText("Anio: ");
+                        Console.ResetColor();
+
+                        Console.SetCursorPosition((Console.WindowWidth - 20) / 2, Console.CursorTop);
+                        int anioEliminado = int.Parse(Console.ReadLine());
+                        nodo.EliminarPorAnio(anioEliminado);
                     }
                     Console.ReadKey();
                     break;
