@@ -214,7 +214,7 @@
                         {
                             eliminarPrimero();
                             Console.ForegroundColor = ConsoleColor.DarkGreen;
-                            Console.WriteLine("\nLa pelicula " + anio + " fue eliminada   ");
+                            Console.WriteLine("\nLa pelicula del " + anio + " fue eliminada   ");
                             Console.ResetColor();
                             return;
                         }
@@ -225,7 +225,7 @@
                             else
                                 anterior.sig = puntero.sig;
                             Console.ForegroundColor = ConsoleColor.DarkGreen;
-                            Console.WriteLine("\nLa pelicula " + anio + " fue eliminada   ");
+                            Console.WriteLine("\nLa pelicula del " + anio + " fue eliminada   ");
                             Console.ResetColor();
                             return;
                         }
@@ -235,7 +235,7 @@
                     puntero = puntero.sig;
                 }
                 Console.ForegroundColor = ConsoleColor.DarkGreen;
-                Console.WriteLine("\nLa pelicula " + anio + " no esta dentro de la lista");
+                Console.WriteLine("\nLa pelicula del " + anio + " no esta dentro de la lista");
                 Console.ResetColor();
             }
             else
