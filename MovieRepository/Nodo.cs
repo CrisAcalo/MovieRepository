@@ -273,7 +273,6 @@
             }
         }
 
-
         public void OrdenarAlfabeticamenteBurbuja()
         {
             Nodo puntero1, puntero2;
@@ -300,6 +299,7 @@
                 }
             }
         }
+
 
         public void OrdenarShellSort()
         {
@@ -394,8 +394,104 @@
                 gap /= 2;
             }
         }
+        public void OrdenarPorAnioQuick()
+        {
+            if (this == null || this.sig == null)
+            {
+                return; // La lista está vacía o solo tiene un elemento, no hay nada que ordenar
+            }
 
+            Nodo ultimo = ObtenerUltimoNodo();
+            QuicksortPorAnio(this, ultimo);
+        }
 
+        public void OrdenarPorNombreQuick()
+        {
+            if (this == null || this.sig == null)
+            {
+                return; // La lista está vacía o solo tiene un elemento, no hay nada que ordenar
+            }
+
+            Nodo ultimo = ObtenerUltimoNodo();
+            QuicksortPorNombre(this, ultimo);
+        }
+
+        public void QuicksortPorAnio(Nodo inicio, Nodo fin)
+        {
+            if (inicio != fin && inicio != null && fin != null)
+            {
+                Nodo pivote = UbicarPivoteAnio(inicio, fin);
+                QuicksortPorAnio(inicio, pivote);
+                QuicksortPorAnio(pivote.sig, fin);
+            }
+        }
+
+        public void QuicksortPorNombre(Nodo inicio, Nodo fin)
+        {
+            if (inicio != fin && inicio != null && fin != null)
+            {
+                Nodo pivote = UbicarPivoteNombre(inicio, fin);
+                QuicksortPorNombre(inicio, pivote);
+                QuicksortPorNombre(pivote.sig, fin);
+            }
+        }
+
+        public Nodo UbicarPivoteNombre(Nodo inicio, Nodo fin)
+        {
+            string pivote = inicio.pelicula.nombre;
+            Nodo puntero1 = inicio.sig;
+            Nodo puntero2 = inicio;
+
+            while (puntero1 != fin.sig)
+            {
+                if (string.Compare(puntero1.pelicula.nombre, pivote) < 0)
+                {
+                    puntero2 = puntero2.sig;
+                    IntercambiarNodos(puntero1, puntero2);
+                }
+                puntero1 = puntero1.sig;
+            }
+
+            IntercambiarNodos(inicio, puntero2);
+            return puntero2;
+        }
+
+        public Nodo UbicarPivoteAnio(Nodo inicio, Nodo fin)
+        {
+            int pivote = inicio.pelicula.anio;
+            Nodo puntero1 = inicio.sig;
+            Nodo puntero2 = inicio;
+
+            while(puntero1 != fin.sig)
+            {
+                if(puntero1.pelicula.anio < pivote)
+                {
+                    puntero2 = puntero2.sig;
+                    IntercambiarNodos(puntero1, puntero2);
+                }
+                puntero1 = puntero1.sig;
+            }
+
+            IntercambiarNodos(inicio, puntero2);
+            return puntero2;
+        }
+
+        private Nodo ObtenerUltimoNodo()
+        {
+            Nodo puntero = this;
+            while (puntero.sig != null)
+            {
+                puntero = puntero.sig;
+            }
+            return puntero;
+        }
+
+        private void IntercambiarNodos(Nodo nodo1, Nodo nodo2)
+        {
+            Pelicula temp = nodo1.pelicula;
+            nodo1.pelicula = nodo2.pelicula;
+            nodo2.pelicula = temp;
+        }
 
     }
 }
