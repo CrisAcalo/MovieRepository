@@ -11,7 +11,7 @@
             this.pelicula = peli;
             this.sig = null;
         }
-
+    
         //Metodo vacío para comprobar si la lista tiene datos o está vacía
         public bool Vacio()
         {
@@ -127,7 +127,6 @@
             Console.WriteLine(text);
         }
 
-
         public void eliminarPrimero()
         {
             Nodo puntero;//Apuntador que se ubicara en el 2do nodo
@@ -150,8 +149,6 @@
                 }
             }
         }
-
-
         public void EliminarPorNombre(string nombre)
         {
             Nodo puntero = this;

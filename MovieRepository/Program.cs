@@ -447,7 +447,7 @@ class Program
         string[] menuOptions = {
             "Eliminar por nombre      ",
             "Eliminar por año         ",
-            "Atrás                   "
+            "Atrás                    "
         };
 
         int selectedOptionIndex = 0;
@@ -532,13 +532,30 @@ class Program
 
                         CenterText("Inserte el anio de la pelicula a eliminar ");
 
-                        Console.ForegroundColor = ConsoleColor.Cyan;
-                        CenterText("Anio: ");
-                        Console.ResetColor();
 
-                        Console.SetCursorPosition((Console.WindowWidth - 20) / 2, Console.CursorTop);
-                        int anioEliminado = int.Parse(Console.ReadLine());
-                        nodo.EliminarPorAnio(anioEliminado);
+                        try
+                        {
+                            Console.ForegroundColor = ConsoleColor.Cyan;
+                            CenterText("Anio: ");
+                            Console.ResetColor();
+
+                            Console.SetCursorPosition((Console.WindowWidth - 20) / 2, Console.CursorTop);
+                            int anioEliminado = int.Parse(Console.ReadLine());
+                            nodo.EliminarPorAnio(anioEliminado);
+
+                        }
+                        catch (FormatException)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            CenterText("..:: Tipo de dato no válido ::..");
+                            Console.ResetColor();
+                        }
+                        catch (OverflowException)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            CenterText("Ha ingresado un valor fuera del rango de un número entero ;-;");
+                            Console.ResetColor();
+                        }
                     }
                     Console.ReadKey();
                     break;
