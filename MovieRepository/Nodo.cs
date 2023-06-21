@@ -11,7 +11,7 @@
             this.pelicula = peli;
             this.sig = null;
         }
-    
+
         //Metodo vacío para comprobar si la lista tiene datos o está vacía
         public bool Vacio()
         {
@@ -360,8 +360,6 @@
             }
         }
 
-
-
         public void OrdenarShellSortAlfabeticamente()
         {
             int longitud = count();
@@ -505,6 +503,102 @@
             Pelicula temp = nodo1.pelicula;
             nodo1.pelicula = nodo2.pelicula;
             nodo2.pelicula = temp;
+        }
+
+        public Pelicula BuscarSecuencialNombre(Nodo nodo, string elemento_buscado)
+        {
+            Pelicula encontrado = null;
+            //bool bandera = false;
+            int comparaciones = 1;
+            Nodo puntero = this;
+
+            while (puntero.sig != null)
+            {
+                if (puntero.pelicula.nombre == elemento_buscado)
+                {
+                    encontrado = puntero.pelicula;
+                    //bandera = true;
+                    break;
+                }
+                comparaciones++;
+                puntero = puntero.sig;
+            }
+
+            if (encontrado != null)
+            {
+                CenterText("El elemento: \n");
+
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                CenterText("══════════════════════════════════");
+                Console.ResetColor();
+
+                CenterText("Nombre: " + encontrado.nombre);
+                CenterText("Año: " + encontrado.anio);
+
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                CenterText("══════════════════════════════════");
+                Console.ResetColor();
+
+                CenterText("Se ha encontrado en la posición: " + comparaciones);
+
+
+                //Console.WriteLine("El elemento " + elemento_buscado + " se ha encontrado en la posicion: " + encontrado + ". Con " + comparaciones + " comparaciones.")
+                return encontrado;
+            }
+            else
+            {
+                CenterText("La película llamada " + elemento_buscado + " no existe");
+                return encontrado;
+            }
+
+        }
+
+        public Pelicula BuscarSecuencialAnio(Nodo nodo, int elemento_buscado)
+        {
+            Pelicula encontrado = null;
+            //bool bandera = false;
+            int comparaciones = 1;
+            Nodo puntero = this;
+
+            while (puntero.sig != null)
+            {
+                if (puntero.pelicula.anio == elemento_buscado)
+                {
+                    encontrado = puntero.pelicula;
+                    //bandera = true;
+                    break;
+                }
+                comparaciones++;
+                puntero = puntero.sig;
+            }
+
+            if (encontrado != null)
+            {
+                CenterText("El elemento: \n");
+
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                CenterText("══════════════════════════════════");
+                Console.ResetColor();
+
+                CenterText("Nombre: " + encontrado.nombre);
+                CenterText("Año: " + encontrado.anio);
+
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                CenterText("══════════════════════════════════");
+                Console.ResetColor();
+
+                CenterText("Se ha encontrado en la posición: " + comparaciones);
+
+
+                //Console.WriteLine("El elemento " + elemento_buscado + " se ha encontrado en la posicion: " + encontrado + ". Con " + comparaciones + " comparaciones.")
+                return encontrado;
+            }
+            else
+            {
+                CenterText("La película del año " + elemento_buscado + " no existe");
+                return encontrado;
+            }
+
         }
 
     }
