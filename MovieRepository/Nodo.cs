@@ -598,6 +598,7 @@
                 CenterText("La película del año " + elemento_buscado + " no existe");
                 return encontrado;
             }
+<<<<<<< HEAD
         }
 
         public Pelicula BusquedaBinariaPorNombre(Nodo nodo,string nombreBuscado)
@@ -672,5 +673,10 @@
             return puntero;
         }
 
+=======
+
+        }
+
+>>>>>>> 58f329737e6f8f71fef7d005d67b2acae3326408
     }
 }

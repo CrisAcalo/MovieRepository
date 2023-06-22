@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\LENOVO\\Desktop\\Uni\\Mayo-Septiembre 2023\\Estructura De Datos\\Talleres\\2P\\MovieRepository\\MovieRepository\\MovieRepository\\MovieRepository.csproj": {}
   },
   "projects": {
@@ -12,6 +13,19 @@
         "projectPath": "C:\\Users\\LENOVO\\Desktop\\Uni\\Mayo-Septiembre 2023\\Estructura De Datos\\Talleres\\2P\\MovieRepository\\MovieRepository\\MovieRepository\\MovieRepository.csproj",
         "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\LENOVO\\Desktop\\Uni\\Mayo-Septiembre 2023\\Estructura De Datos\\Talleres\\2P\\MovieRepository\\MovieRepository\\MovieRepository\\obj\\",
+=======
+    "C:\\Users\\LENOVO\\Desktop\\Uni\\Mayo-Septiembre 2023\\Estructura De Datos\\Talleres\\2P\\MovieRepository\\MovieRepository.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\LENOVO\\Desktop\\Uni\\Mayo-Septiembre 2023\\Estructura De Datos\\Talleres\\2P\\MovieRepository\\MovieRepository.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\LENOVO\\Desktop\\Uni\\Mayo-Septiembre 2023\\Estructura De Datos\\Talleres\\2P\\MovieRepository\\MovieRepository.csproj",
+        "projectName": "MovieRepository",
+        "projectPath": "C:\\Users\\LENOVO\\Desktop\\Uni\\Mayo-Septiembre 2023\\Estructura De Datos\\Talleres\\2P\\MovieRepository\\MovieRepository.csproj",
+        "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\LENOVO\\Desktop\\Uni\\Mayo-Septiembre 2023\\Estructura De Datos\\Talleres\\2P\\MovieRepository\\obj\\",
+>>>>>>> 58f329737e6f8f71fef7d005d67b2acae3326408
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -55,7 +69,11 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.304\\RuntimeIdentifierGraph.json"
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.302\\RuntimeIdentifierGraph.json"
+>>>>>>> 58f329737e6f8f71fef7d005d67b2acae3326408
         }
       }
     }

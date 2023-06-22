@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "/PEmK6SFV76qaVFExxKN6IZgF020kvJr9+CDTPhQfr9RoHxix26PsaHhZoUg4mfoqocVbKspCz++/+CTeBAoPg==",
   "success": true,
   "projectFilePath": "C:\\Users\\LENOVO\\Desktop\\Uni\\Mayo-Septiembre 2023\\Estructura De Datos\\Talleres\\2P\\MovieRepository\\MovieRepository\\MovieRepository\\MovieRepository.csproj",
+=======
+  "dgSpecHash": "Hhfr7hKIm8BzgCQOrSWwIfAKVDsG1TLHumVtsIZyeowZZYDzimijLfG+xX+ocLUIoreGhZqzKVG/DnC0oODkMg==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\LENOVO\\Desktop\\Uni\\Mayo-Septiembre 2023\\Estructura De Datos\\Talleres\\2P\\MovieRepository\\MovieRepository.csproj",
+>>>>>>> 58f329737e6f8f71fef7d005d67b2acae3326408
   "expectedPackageFiles": [],
   "logs": []
 }
