@@ -19,6 +19,7 @@ class Program
             "Ver películas ingresadas",
             "Eliminar película(s)    ",
             "Ordenar                 ",
+            "Buscar                  ",
             "Salir                   " };
         int selectedOptionIndex = 0;
 
@@ -130,6 +131,18 @@ class Program
                         Console.ResetColor();
 
                         OrdenarAtributoSubmenu(nodo);
+                    }
+                    else if (menuOptions[selectedOptionIndex] == "Buscar                  ")
+                    {
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        CenterText("╔══════════════════════════════╗");
+                        CenterText("║                              ║");
+                        CenterText("║        Buscar Película       ║");
+                        CenterText("║                              ║");
+                        CenterText("╚══════════════════════════════╝");
+                        Console.ResetColor();
+
+                        BuscarPeliculaSubmenu(nodo);
                     }
                     Console.ReadKey();
                     break;
@@ -555,6 +568,255 @@ class Program
                             Console.ForegroundColor = ConsoleColor.Red;
                             CenterText("Ha ingresado un valor fuera del rango de un número entero ;-;");
                             Console.ResetColor();
+                        }
+                    }
+                    Console.ReadKey();
+                    break;
+            }
+        }
+    }
+
+    private static void BuscarPeliculaSubmenu(Nodo nodo)
+    {
+        Console.Clear();
+
+        string[] menuOptions = {
+            "Buscar por nombre        ",
+            "Buscar por año           ",
+            "Atrás                    "
+        };
+
+        int selectedOptionIndex = 0;
+
+        while (true)
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            CenterText("╔════════════════════════════╗");
+            CenterText("║                            ║");
+            CenterText("║           Buscar           ║");
+            CenterText("║                            ║");
+            CenterText("╚════════════════════════════╝");
+            Console.ResetColor();
+            CenterText("");
+            CenterText("Seleccione el elemento a buscar:");
+            CenterText("");
+
+            for (int i = 0; i < menuOptions.Length; i++)
+            {
+                if (i == selectedOptionIndex)
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    CenterText("> " + menuOptions[i]);
+                }
+                else
+                {
+                    CenterText("  " + menuOptions[i]);
+                }
+                Console.ResetColor();
+            }
+
+            ConsoleKeyInfo keyInfo = Console.ReadKey();
+
+            switch (keyInfo.Key)
+            {
+                case ConsoleKey.UpArrow:
+                    selectedOptionIndex = selectedOptionIndex > 0 ? selectedOptionIndex - 1 : menuOptions.Length - 1;
+                    break;
+                case ConsoleKey.DownArrow:
+                    selectedOptionIndex = (selectedOptionIndex + 1) % menuOptions.Length;
+                    break;
+                case ConsoleKey.Enter:
+                    Console.Clear();
+
+                    CenterText("Presione cualquier tecla para continuar...");
+
+                    if (selectedOptionIndex == menuOptions.Length - 1)
+                    {
+                        return;
+                    }
+                    else if (menuOptions[selectedOptionIndex] == "Buscar por nombre        ")
+                    {
+
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        CenterText("╔══════════════════════════════╗");
+                        CenterText("║                              ║");
+                        CenterText("║       Buscar Por Nombre      ║");
+                        CenterText("║                              ║");
+                        CenterText("╚══════════════════════════════╝");
+                        Console.ResetColor();
+
+                        CenterText("Inserte el nombre de la pelicula a buscar");
+
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        CenterText("Nombre: ");
+                        Console.ResetColor();
+
+                        Console.SetCursorPosition((Console.WindowWidth - 20) / 2, Console.CursorTop);
+                        string nombre_buscado = Console.ReadLine();
+                        
+                        buscarMetodoSubmenu(nodo, "nombre", nombre_buscado);
+                        //nodo.EliminarPorNombre(nombreEliminado);
+                    }
+                    else if (menuOptions[selectedOptionIndex] == "Buscar por año           ")
+                    {
+                        Console.ForegroundColor = ConsoleColor.Cyan;
+                        CenterText("╔══════════════════════════════╗");
+                        CenterText("║                              ║");
+                        CenterText("║         Buscar por año       ║");
+                        CenterText("║                              ║");
+                        CenterText("╚══════════════════════════════╝");
+                        Console.ResetColor();
+
+                        CenterText("Inserte el anio de la pelicula a buscar");
+
+
+                        try
+                        {
+                            Console.ForegroundColor = ConsoleColor.Cyan;
+                            CenterText("Año: ");
+                            Console.ResetColor();
+
+                            Console.SetCursorPosition((Console.WindowWidth - 20) / 2, Console.CursorTop);
+                            int anio_buscado = int.Parse(Console.ReadLine());
+
+                            string anio_buscado_str = anio_buscado.ToString();
+
+                            buscarMetodoSubmenu(nodo, "anio", anio_buscado_str);
+                            //nodo.EliminarPorAnio(anioEliminado);
+                        }
+                        catch (FormatException)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            CenterText("..:: Tipo de dato no válido ::..");
+                            Console.ResetColor();
+                        }
+                        catch (OverflowException)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            CenterText("Ha ingresado un valor fuera del rango de un número entero ;-;");
+                            Console.ResetColor();
+                        }
+                    }
+                    Console.ReadKey();
+                    break;
+            }
+        }
+    }
+
+    private static void buscarMetodoSubmenu(Nodo nodo, string atributo, string atributo_buscado)
+    {
+        Console.Clear();
+
+        string[] menuOptions = {
+            "Busqueda secuencial     ",
+            "Busqueda binaria        ",
+            "Atrás                   "
+        };
+
+        int selectedOptionIndex = 0;
+
+        while (true)
+        {
+            Console.Clear();
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            CenterText("╔════════════════════════════╗");
+            CenterText("║                            ║");
+            CenterText("║      Metodo de Búqueda     ║");
+            CenterText("║                            ║");
+            CenterText("╚════════════════════════════╝");
+            Console.ResetColor();
+            CenterText("");
+            CenterText("Seleccione el algoritmo a usar:");
+            CenterText("");
+
+            for (int i = 0; i < menuOptions.Length; i++)
+            {
+                if (i == selectedOptionIndex)
+                {
+                    Console.ForegroundColor = ConsoleColor.Cyan;
+                    CenterText("> " + menuOptions[i]);
+                }
+                else
+                {
+                    CenterText("  " + menuOptions[i]);
+                }
+                Console.ResetColor();
+            }
+
+            ConsoleKeyInfo keyInfo = Console.ReadKey();
+
+            switch (keyInfo.Key)
+            {
+                case ConsoleKey.UpArrow:
+                    selectedOptionIndex = selectedOptionIndex > 0 ? selectedOptionIndex - 1 : menuOptions.Length - 1;
+                    break;
+                case ConsoleKey.DownArrow:
+                    selectedOptionIndex = (selectedOptionIndex + 1) % menuOptions.Length;
+                    break;
+                case ConsoleKey.Enter:
+                    Console.Clear();
+
+                    CenterText("Presione cualquier tecla para continuar...");
+
+                    if (selectedOptionIndex == menuOptions.Length - 1)
+                    {
+                        return;
+                    }
+                    else if (menuOptions[selectedOptionIndex] == "Busqueda secuencial     ")
+                    {
+                        try
+                        {
+                            if (atributo == "nombre")
+                            {
+                                nodo.BuscarSecuencialNombre(nodo,atributo_buscado);
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                CenterText("La busqueda secuencial por nombre se ha ejecutado con éxito");
+                                Console.ResetColor();
+                            }
+                            else if (atributo == "anio")
+                            {
+                                int numVal_atributo_buscado = Int32.Parse(atributo_buscado);
+                                nodo.BuscarSecuencialAnio(nodo,numVal_atributo_buscado);
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                CenterText("La busqueda secuencial por año se ha ejecutado con éxito");
+                                Console.ResetColor();
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            CenterText("Ha ocurrido un problema con el algoritmo de la Burbuja...");
+                            Console.ResetColor();
+                            throw;
+                        }
+                    }
+                    else if (menuOptions[selectedOptionIndex] == "Busqueda binaria        ")
+                    {
+                        try
+                        {
+                            if (atributo == "nombre")
+                            {
+                                nodo.OrdenarAlfabeticamenteBurbuja();
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                CenterText("El ordenamiento alfabetico por SellSort se ha ejecutado con exito");
+                                Console.ResetColor();
+                            }
+                            else if (atributo == "anio")
+                            {
+                                nodo.OrdenarShellSort();
+
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                CenterText("El ordenamiento por año por SellSort se ha ejecutado con exito");
+                                Console.ResetColor();
+                            }
+                        }
+                        catch (Exception)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            CenterText("Ha ocurrido un problema con el algoritmo Shell...");
+                            Console.ResetColor();
+                            throw;
                         }
                     }
                     Console.ReadKey();
