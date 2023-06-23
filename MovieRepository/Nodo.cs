@@ -598,8 +598,78 @@
                 CenterText("La película del año " + elemento_buscado + " no existe");
                 return encontrado;
             }
+        }
+
+        public Pelicula BusquedaBinariaPorNombre(Nodo nodo,string nombreBuscado)
+        {
+            int inicio = 0;
+            int fin = count() - 1;
+            int comparaciones = 1;
+
+            while (inicio <= fin)
+            {
+                int central = (inicio + fin) / 2;
+                Nodo nodoMedio = ObtenerNodoEnPosicion(nodo, central);
+
+                int comparacion = string.Compare(nodoMedio.pelicula.nombre, nombreBuscado);
+
+                if (comparacion == 0)
+                {
+                    CenterText("Se ha encontrado con: " + comparaciones + " comparaciones");
+                    return nodoMedio.pelicula;// Se encontró la película
+                }
+                else if (comparacion < 0)
+                    inicio = central + 1;// La película está en la mitad derecha
+                else
+                    fin = central - 1;// La película está en la mitad izquierda
+                comparaciones++;
+            }
+            return null;// No se encontró la película
 
         }
 
+        public Pelicula BusquedaBinariaPorAnio(Nodo nodo,int anioBuscado)
+        {
+            int inicio = 0;
+            int fin = count() - 1;
+            int comparaciones = 1;
+
+            while (inicio <= fin)
+            {
+                int central = (inicio + fin) / 2;
+                Nodo nodoMedio = ObtenerNodoEnPosicion(nodo,central);
+
+                if (nodoMedio.pelicula.anio == anioBuscado)
+                {
+                    CenterText("Se ha encontrado con: " + comparaciones + " comparaciones");
+                    return nodoMedio.pelicula; // Se encontró la película
+                }
+                else if (nodoMedio.pelicula.anio < anioBuscado)
+                {
+                    inicio = central + 1; // La película está en la mitad derecha
+                }
+                else
+                {
+                    fin = central - 1; // La película está en la mitad izquierda
+                }
+                comparaciones++;
+            }
+            return null;// No se encontró la película
+        }
+
+        //Obtiene El nodo segun sea la posicion que se solicita
+        public Nodo ObtenerNodoEnPosicion(Nodo puntero, int posicion)
+        {
+            int contador = 0;
+
+            while(puntero != null)
+            {
+                if (contador == posicion)
+                    break;
+                contador++;
+                puntero = puntero.sig;
+            }
+            return puntero;
+        }
     }
 }

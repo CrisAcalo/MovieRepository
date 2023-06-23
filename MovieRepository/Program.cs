@@ -797,17 +797,63 @@ class Program
                         {
                             if (atributo == "nombre")
                             {
-                                nodo.OrdenarAlfabeticamenteBurbuja();
+                                nodo.OrdenarPorNombreQuick();
                                 Console.ForegroundColor = ConsoleColor.Green;
-                                CenterText("El ordenamiento alfabetico por SellSort se ha ejecutado con exito");
+                                CenterText("El ordenamiento alfabetico por Quick se ha ejecutado con exito");
+                                Console.ResetColor();
+                                Pelicula peliculaNombreB = nodo.BusquedaBinariaPorNombre(nodo, atributo_buscado);
+                                if (peliculaNombreB != null)
+                                {
+                                    CenterText("El elemento: \n");
+
+                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                    CenterText("══════════════════════════════════");
+                                    Console.ResetColor();
+
+                                    CenterText("Nombre: " + peliculaNombreB.nombre);
+                                    CenterText("Año: " + peliculaNombreB.anio);
+
+                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                    CenterText("══════════════════════════════════");
+                                    Console.ResetColor();
+                                }
+                                else
+                                {
+                                    CenterText("La película de nombre " + atributo_buscado + " no existe");
+                                }
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                CenterText("La busqueda binaria por nombre se ha ejecutado con éxito");
                                 Console.ResetColor();
                             }
                             else if (atributo == "anio")
                             {
+                                int numVal_atributo_buscado = Int32.Parse(atributo_buscado);
                                 nodo.OrdenarShellSort();
-
                                 Console.ForegroundColor = ConsoleColor.Green;
                                 CenterText("El ordenamiento por año por SellSort se ha ejecutado con exito");
+                                Console.ResetColor();
+                                Pelicula peliculaAnioB = nodo.BusquedaBinariaPorAnio(nodo,numVal_atributo_buscado);
+                                if (peliculaAnioB != null)
+                                {
+                                    CenterText("El elemento: \n");
+
+                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                    CenterText("══════════════════════════════════");
+                                    Console.ResetColor();
+
+                                    CenterText("Nombre: " + peliculaAnioB.nombre);
+                                    CenterText("Año: " + peliculaAnioB.anio);
+
+                                    Console.ForegroundColor = ConsoleColor.Cyan;
+                                    CenterText("══════════════════════════════════");
+                                    Console.ResetColor();
+                                }
+                                else
+                                {
+                                    CenterText("La película del año " + numVal_atributo_buscado + " no existe");
+                                }
+                                Console.ForegroundColor = ConsoleColor.Green;
+                                CenterText("La busqueda binaria por anio se ha ejecutado con éxito");
                                 Console.ResetColor();
                             }
                         }
