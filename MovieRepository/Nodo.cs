@@ -42,7 +42,7 @@
             }
             Console.ForegroundColor = ConsoleColor.Green;
             CenterText("");
-            CenterText(">> La película " + puntero.pelicula.nombre + " del año " + puntero.pelicula.anio + " fue ingresada con éxito <<");
+            CenterText(">> La película " + datoNuevo.nombre + " del año " + datoNuevo.anio + " fue ingresada con éxito <<");
             Console.ResetColor();
         }
 
